@@ -21,7 +21,7 @@ BE AWARE, TO ADD NEGATIVE SIGN PRESS 'M'
 TO ADD A POINT PRESS 'P'
 '-' and '.' will NOT work
 
-If you with to start the graph from scratch
+If you wish to start the graph from scratch
 or change the starting graph simply change
 the the contents of files/toLoad.txt.
 if the file is non existant the program will start
