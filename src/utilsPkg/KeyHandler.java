@@ -37,17 +37,10 @@ public class KeyHandler {
 		jshooter.getInputMap(Defines.IFW).put(KeyStroke.getKeyStroke("Z"), "z");
 		jshooter.getInputMap(Defines.IFW).put(KeyStroke.getKeyStroke("U"), "u");
 
+		for (char i = '0'; i <= '9'; i++){
+			jshooter.getInputMap(Defines.IFW).put(KeyStroke.getKeyStroke(i + ""), i + "");
+		}
 
-		jshooter.getInputMap(Defines.IFW).put(KeyStroke.getKeyStroke("1"), "1");
-		jshooter.getInputMap(Defines.IFW).put(KeyStroke.getKeyStroke("2"), "2");
-		jshooter.getInputMap(Defines.IFW).put(KeyStroke.getKeyStroke("3"), "3");
-		jshooter.getInputMap(Defines.IFW).put(KeyStroke.getKeyStroke("4"), "4");
-		jshooter.getInputMap(Defines.IFW).put(KeyStroke.getKeyStroke("5"), "5");
-		jshooter.getInputMap(Defines.IFW).put(KeyStroke.getKeyStroke("6"), "6");
-		jshooter.getInputMap(Defines.IFW).put(KeyStroke.getKeyStroke("7"), "7");
-		jshooter.getInputMap(Defines.IFW).put(KeyStroke.getKeyStroke("8"), "8");
-		jshooter.getInputMap(Defines.IFW).put(KeyStroke.getKeyStroke("9"), "9");
-		jshooter.getInputMap(Defines.IFW).put(KeyStroke.getKeyStroke("0"), "0");
 		jshooter.getInputMap(Defines.IFW).put(KeyStroke.getKeyStroke("M"), "-");
 		jshooter.getInputMap(Defines.IFW).put(KeyStroke.getKeyStroke("P"), ".");
 
@@ -72,16 +65,10 @@ public class KeyHandler {
 		jshooter.getActionMap().put("z", new PressedZ());
 		jshooter.getActionMap().put("u", new PressedU());
 
-		jshooter.getActionMap().put("1", new PressedOne());
-		jshooter.getActionMap().put("2", new PressedTwo());
-		jshooter.getActionMap().put("3", new PressedThree());
-		jshooter.getActionMap().put("4", new PressedFour());
-		jshooter.getActionMap().put("5", new PressedFive());
-		jshooter.getActionMap().put("6", new PressedSix());
-		jshooter.getActionMap().put("7", new PressedSeven());
-		jshooter.getActionMap().put("8", new PressedEight());
-		jshooter.getActionMap().put("9", new PressedNine());
-		jshooter.getActionMap().put("0", new PressedZero());
+		for (char i = '0'; i <= '9'; i++){
+			jshooter.getActionMap().put(i + "", new PressedNumber(i));
+		}
+
 		jshooter.getActionMap().put("-", new PressedMinus());
 		jshooter.getActionMap().put(".", new PressedPoint());
 
@@ -132,74 +119,16 @@ public class KeyHandler {
 		}
 	}
 
-
-	public class PressedOne extends AbstractAction{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			str += "1";
+	public class PressedNumber extends AbstractAction{
+		private char get;
+		
+		public PressedNumber(char get){
+			this.get = get;
 		}
-	}
 
-	public class PressedTwo extends AbstractAction{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			str += "2";
-		}
-	}
-
-	public class PressedThree extends AbstractAction{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			str += "3";
-		}
-	}
-
-	public class PressedFour extends AbstractAction{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			str += "4";
-		}
-	}
-
-	public class PressedFive extends AbstractAction{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			str += "5";
-		}
-	}
-
-	public class PressedSix extends AbstractAction{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			str += "6";
-		}
-	}
-
-	public class PressedSeven extends AbstractAction{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			str += "7";
-		}
-	}
-
-	public class PressedEight extends AbstractAction{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			str += "8";
-		}
-	}
-
-	public class PressedNine extends AbstractAction{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			str += "9";
-		}
-	}
-
-	public class PressedZero extends AbstractAction{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			str += "0";
+			str += this.get;
 		}
 	}
 
