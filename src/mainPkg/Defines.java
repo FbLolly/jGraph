@@ -10,7 +10,7 @@ public class Defines {
 	public static int waiting = standardWaiting;
 
 	public static final int width = 1920;
-	public static final int height = 1080;
+	public static final int height = 1000;
 
 	public static final int minZoom = 1;
 	public static final int maxZoom = 50;

@@ -17,7 +17,6 @@ import cameraPkg.Camera;
 import graphPkg.Graph;
 import utilsPkg.DoublePoint;
 import utilsPkg.KeyHandler;
-import utilsPkg.Mouse;
 
 public class JGraph extends JPanel implements Runnable{
 	private double drawInterval;
@@ -32,11 +31,9 @@ public class JGraph extends JPanel implements Runnable{
 	
 	private Thread thread;
 	private KeyHandler keyHandler;
-	private Mouse mouse;
 	
 	public JGraph() {
 		this.keyHandler = new KeyHandler();
-		this.mouse = new Mouse();
 		this.cam = new Camera(20, new Point(50, 50));
 		this.graph = new Graph();
 
@@ -47,7 +44,6 @@ public class JGraph extends JPanel implements Runnable{
 		this.setDoubleBuffered(true);
 		this.setPreferredSize(new Dimension(Defines.width, Defines.height));
 		this.setSize(new Dimension(Defines.width, Defines.height));
-		this.addMouseListener(mouse);
 		this.setFocusable(true);
 		this.setVisible(true);
 		
@@ -119,8 +115,6 @@ public class JGraph extends JPanel implements Runnable{
 		}
 
 		cam.setOffSet(new Point((int)(cam.getOffSet().x + (this.keyHandler.direction.x*cam.getZoom())), (int)(cam.getOffSet().y + (this.keyHandler.direction.y*cam.getZoom()))));
-
-		this.mouse.updateMousePos();
 
 		if (keyHandler.pressedEscape){
 			System.exit(0);
